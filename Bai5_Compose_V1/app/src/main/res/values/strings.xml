@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Bai5_Compose_V1</string>
+    <string name="app_logo">App Logo\n</string>
+    <string name="the_tolet">The Tolet\n</string>
+    <string name="find_house">Find your house\n</string>
+    <string name="login">Login\n</string>
+    <string name="str_des_sample_image">Sample Image</string>
+    <string name="Enter_Information">Enter Your Information\n</string>
+</resources>
