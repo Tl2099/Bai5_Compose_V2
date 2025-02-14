@@ -1,0 +1,21 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="34dp"
+    android:viewportWidth="32"
+    android:viewportHeight="34">
+
+  <!-- Biểu tượng chính (khung ngoài) -->
+  <path
+      android:strokeColor="#8B418F"
+  android:strokeWidth="2"
+  android:fillColor="@android:color/transparent"
+  android:pathData="M13.9793 2.04004C15.2297 1.31999 16.7703 1.31999 18.0207 2.04004L27.9793 7.77459C29.2297 8.49464 30 9.82535 30 11.2654V22.7346C30 24.1747 29.2297 25.5054 27.9793 26.2254L18.0207 31.96C16.7703 32.68 15.2297 32.68 13.9793 31.96L4.02073 26.2254C2.7703 25.5054 2 24.1747 2 22.7346V11.2654C2 9.82535 2.7703 8.49464 4.02073 7.77459L13.9793 2.04004Z" />
+
+  <!-- Biểu tượng chính (khối giữa) -->
+  <path
+      android:strokeColor="#8B418F"
+  android:strokeWidth="2"
+  android:fillColor="@android:color/transparent"
+  android:pathData="M14.9896 9.76131C15.6149 9.4129 16.3851 9.4129 17.0104 9.76131L21.9896 12.5361C22.6149 12.8845 23 13.5284 23 14.2252V19.7748C23 20.4716 22.6149 21.1155 21.9896 21.4639L17.0104 24.2387C16.3851 24.5871 15.6149 24.5871 14.9896 24.2387L10.0104 21.4639C9.38515 21.1155 9 20.4716 9 19.7748V14.2252C9 13.5284 9.38515 12.8845 10.0104 12.5361L14.9896 9.76131Z" />
+
+</vector>

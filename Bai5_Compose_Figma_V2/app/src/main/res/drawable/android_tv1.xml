@@ -1,0 +1,28 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+
+  <!-- Hình chữ nhật bo góc (thay thế `rect` có `rx`) -->
+  <path
+      android:strokeColor="#8B418F"
+      android:strokeWidth="2"
+      android:fillColor="@android:color/transparent"
+      android:pathData="M 7,4 H 25 A 5,5 0 0 1 30,9 V 19 A 5,5 0 0 1 25,24 H 7 A 5,5 0 0 1 2,19 V 9 A 5,5 0 0 1 7,4 Z" />
+
+  <!-- Chân đế của màn hình -->
+  <path
+      android:strokeColor="#8B418F"
+      android:strokeWidth="2"
+      android:fillColor="@android:color/transparent"
+      android:pathData="M10.5 24H9.5V25V26.5C9.5 27.6046 10.3954 28.5 11.5 28.5H20.5C21.6046 28.5 22.5 27.6046 22.5 26.5V25V24H21.5H10.5Z" />
+
+  <!-- Biểu tượng Play Video -->
+  <path
+      android:strokeColor="#8B418F"
+      android:strokeWidth="2"
+      android:fillColor="@android:color/transparent"
+      android:pathData="M16 10.5C14.6667 9.7302 13 10.6924 13 12.2321V15.6962C13 17.2358 14.6667 18.198 16 17.4282L19 15.6962C20.3333 14.9264 20.3333 13.0019 19 12.2321L16 10.5Z" />
+
+</vector>

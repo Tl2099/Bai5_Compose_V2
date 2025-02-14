@@ -1,0 +1,16 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+
+  <!-- Biểu tượng chính -->
+  <path
+      android:strokeColor="#8B418F"
+  android:strokeWidth="2"
+  android:strokeLineCap="round"
+  android:strokeLineJoin="round"
+  android:fillColor="@android:color/transparent"
+  android:pathData="M1.5 8.16554L15.5356 1.10868C15.8238 0.963818 16.1663 0.963769 16.4545 1.10855L30.5 8.1653M1.5 8.16554L1.50006 24.198M1.5 8.16554L15.9956 14.9673M30.5 8.1653V24.198M30.5 8.1653L15.9956 14.9673M30.5 24.198L15.9956 31M30.5 24.198L15.9956 17.3963M15.9956 31L1.50006 24.198M15.9956 31L15.9956 17.3963M1.50006 24.198L15.9956 17.3963M15.9956 17.3963V14.9673" />
+
+</vector>
