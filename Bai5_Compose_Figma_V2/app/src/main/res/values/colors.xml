@@ -7,4 +7,16 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Màu cho Light Mode -->
+    <color name="user_gradient_start_light">#A23F16</color>
+    <color name="user_gradient_end_light">#8B418F</color>
+    <color name="user_border_light">#EDDEE8</color>
+
+    <!-- Màu cho Dark Mode -->
+    <color name="user_gradient_start_dark">#FFB59B</color>
+    <color name="user_gradient_end_dark">#FFA9FE</color>
+    <color name="user_border_dark">#201A1B</color>
+
+
 </resources>
