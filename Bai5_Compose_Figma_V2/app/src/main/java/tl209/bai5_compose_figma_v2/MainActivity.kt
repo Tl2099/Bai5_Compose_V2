@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -52,11 +53,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import tl209.bai5_compose_figma_v2.ui.components.ContentCard
 import tl209.bai5_compose_figma_v2.ui.components.GradientBackground
 import tl209.bai5_compose_figma_v2.ui.components.TopicSelectionGrid
 import tl209.bai5_compose_figma_v2.ui.components.UserIcon
@@ -74,6 +77,15 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+fun PreviewContentCard() {
+    ContentCard(
+        title = "New Compose for Wear OS codelab",
+        description = "In this codelab, you can learn how Wear OS can work with Compose, what Wear OS specific composables are available, and more!",
+        tags = listOf("Compose", "Events", "Performance","Compose", "Events", "Performance", "Compose", "Events", "Performance")
+    )
+}
 @Preview(showBackground = true)
 @Composable
 fun MainScreen() {
@@ -132,7 +144,7 @@ fun ContentUnderHeader() {
             style = MaterialTheme.typography.titleMedium,
             fontWeight = FontWeight.Bold
         )
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(25.dp))
         Text(
             text = "Updates from interests you follow will appear here. Follow some things to get started.",
             style = MaterialTheme.typography.bodyMedium,
@@ -152,7 +164,8 @@ fun BottomNavigationBar() {
     val navBackgroundColor = if (isDarkMode) Color(0xFF201A1B) else Color(0xFFFCFCFC)
 
     NavigationBar(
-        modifier = Modifier.fillMaxWidth().padding(10.dp),
+        modifier = Modifier
+            .fillMaxWidth(),
         containerColor = navBackgroundColor // Màu nền chung của Bottom Bar
     ) {
         val items = listOf(
@@ -256,48 +269,20 @@ fun DoneButton() {
     }
 }
 
-//@Composable
-//fun UserAvatarRow() {
-//    val users = listOf(
-//        "Fernando",
-//        "Alex",
-//        "Sam",
-//        "Lee",
-//        "John",
-//        "Emma"
-//    )
-//
-//    LazyRow(
-//        modifier = Modifier
-//            .fillMaxWidth()
-//            .padding(vertical = 8.dp),
-//        horizontalArrangement = Arrangement.spacedBy(16.dp)
-//    ) {
-//        itemsIndexed(users) { index, name ->
-//            Column(
-//                horizontalAlignment = Alignment.CenterHorizontally,
-//                modifier = Modifier.padding(start = if (index == 0) 30.dp else 0.dp)
-//            ) {
-//                UserIcon() //Thay thế hình ảnh bằng icon gradient
-//                Spacer(modifier = Modifier.height(4.dp))
-//                Text(
-//                    text = name,
-//                    style = MaterialTheme.typography.bodyMedium,
-//                    textAlign = TextAlign.Center
-//                )
-//            }
-//        }
-//    }
-//}
-
-
 
 @Composable
 fun UserAvatarRow() {
+    val isDarkMode = isSystemInDarkTheme()
+
+    val avatarBackgroundColor = if (isDarkMode) Color(0xFF352830) else Color(0xFFEDDEE8)
+    val userIconColor = if (isDarkMode) Color(0xFFFFA9FE) else Color(0xFFA23F16)
+    val addIconColor = if (isDarkMode) Color(0xFFECDFE0) else Color(0xFF201A1B)
+    val addIconBackground = if (isDarkMode) Color(0xFF201A1B) else Color(0xFFFCFCFC)
+
     val users = listOf(
         "Fernando" to R.drawable.ic_user,
         "Alex" to R.drawable.ic_user,
-        "Sam" to R.drawable.ic_user,
+        "Sam" to R.drawable.ic_user, // hinh nguoi: FFA9FE, bg: CFC4C5, dau cong: ECDFE0, bgIcon: 201A1B
         "Lee" to R.drawable.ic_user,
         "John" to R.drawable.ic_user, // Thêm nhiều người để có thể kéo ngang
         "Emma" to R.drawable.ic_user
@@ -305,22 +290,53 @@ fun UserAvatarRow() {
     LazyRow(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 8.dp),
-        horizontalArrangement = Arrangement.spacedBy(16.dp)
+            .padding(vertical = 2.dp),
+        horizontalArrangement = Arrangement.spacedBy(25.dp)
     ) {
         itemsIndexed(users) { index, (name, avatar) ->
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.padding(start = if (index == 0) 20.dp else 0.dp)
+                verticalArrangement = Arrangement.Center,
+                modifier = Modifier
+                    .padding(start = if (index == 0) 50.dp else 0.dp)
             ) {
-                Image(
-                    painter = painterResource(id = avatar),
-                    contentDescription = name,
-                    modifier = Modifier
-                        .size(40.dp)
-                        .clip(CircleShape)
-                        .background(Color.LightGray)
-                )
+                Box(
+                    contentAlignment = Alignment.Center,
+                    modifier = Modifier.size(60.dp)
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .size(60.dp)
+                            .clip(CircleShape)
+                            .background(avatarBackgroundColor),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Image(
+                            painter = painterResource(id = avatar),
+                            contentDescription = name,
+                            modifier = Modifier
+                                .size(40.dp)
+                                .clip(CircleShape),
+                            colorFilter = ColorFilter.tint(userIconColor)
+                        )
+                    }
+                    Box(
+                        modifier = Modifier
+                            .size(25.dp)
+                            .align(Alignment.BottomEnd)
+                            .background(addIconBackground, shape = CircleShape),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_add),
+                            contentDescription = "Add",
+                            tint = addIconColor,
+                            modifier = Modifier.size(22.dp)
+                        )
+                    }
+                }
+
+
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
                     text = name,
@@ -330,6 +346,7 @@ fun UserAvatarRow() {
             }
         }
     }
+//Hinh nguoi mau: FFB59B, background: CFC4C5u, dau cong:ECDFE0, background dau cong: 201A1B
 }
 
 @Composable
@@ -344,7 +361,7 @@ fun TopHeader() {
         Icon(
             painter = painterResource(id = R.drawable.ic_search),
             contentDescription = "Search Icon",
-            modifier = Modifier.size(32.dp)
+            modifier = Modifier.size(30.dp)
         )
         Text(
             text = "Now in Android",
@@ -354,7 +371,7 @@ fun TopHeader() {
         Icon(
             painter = painterResource(id = R.drawable.ic_account),
             contentDescription = "Profile Icon",
-            modifier = Modifier.size(32.dp)
+            modifier = Modifier.size(30.dp)
         )
     }
     //Icon và Chu: 36003C

@@ -25,8 +25,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import tl209.bai5_compose_figma_v2.R
-import tl209.bai5_compose_figma_v2.ui.theme.DarkCardBackground
-import tl209.bai5_compose_figma_v2.ui.theme.DarkPink
 import tl209.bai5_compose_figma_v2.ui.theme.IconDarkMode
 import tl209.bai5_compose_figma_v2.ui.theme.IconLightMode
 
@@ -35,7 +33,7 @@ fun TopicCard(title: String, icon: Int, isSelected: Boolean, onClick: () -> Unit
     val isDarkMode = isSystemInDarkTheme()
 
     //val cardBackground = if (isDarkMode) DarkCardBackground else MaterialTheme.colorScheme.surface
-    val cardBackground = if(isDarkMode) Color.Black else Color.White
+    val cardBackground = if (isDarkMode) Color.Black else Color.White
     val textColor = MaterialTheme.colorScheme.onSurface
     val iconColor = if (isDarkMode) IconDarkMode else IconLightMode
     //val textColor = if (isDarkMode) DarkPink else MaterialTheme.colorScheme.onSurface
@@ -45,7 +43,7 @@ fun TopicCard(title: String, icon: Int, isSelected: Boolean, onClick: () -> Unit
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(8.dp),
+            .padding(1.dp),
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(containerColor = cardBackground),
         //elevation = CardDefaults.cardElevation(0.dp)
@@ -64,7 +62,7 @@ fun TopicCard(title: String, icon: Int, isSelected: Boolean, onClick: () -> Unit
                     painter = painterResource(id = icon),
                     contentDescription = title,
                     tint = iconColor,
-                    modifier = Modifier.size(32.dp)
+                    modifier = Modifier.size(40.dp)
                 )
                 Spacer(modifier = Modifier.width(12.dp))
                 Text(
@@ -75,13 +73,13 @@ fun TopicCard(title: String, icon: Int, isSelected: Boolean, onClick: () -> Unit
             }
             Box(
                 modifier = Modifier
-                    .size(32.dp)
+                    .size(28.dp)
                     .background(
                         color = if (isSelected) checkBackground else Color.Transparent,
                         shape = CircleShape
                     ),
                 contentAlignment = Alignment.Center
-            ){
+            ) {
                 IconButton(
                     onClick = onClick,
                     modifier = Modifier.size(24.dp)
@@ -89,7 +87,7 @@ fun TopicCard(title: String, icon: Int, isSelected: Boolean, onClick: () -> Unit
                     Icon(
                         painter = painterResource(id = if (isSelected) R.drawable.ic_checked else R.drawable.ic_add),
                         contentDescription = "Select $title",
-                        tint = if(isSelected) checkColor else textColor,
+                        tint = if (isSelected) checkColor else textColor,
                         modifier = Modifier.size(24.dp)
                     )
                 }
